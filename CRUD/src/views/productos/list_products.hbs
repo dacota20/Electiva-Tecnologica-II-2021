@@ -1,0 +1,68 @@
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <form action="agregarProductos" method="POST">
+                <div class="mb-3">
+                    <input type="text" name="nom_producto">
+                </div>
+                <div class="mb-3">
+                    <input type="number" name="cantidad">
+                </div>
+                <button type="submit" class="btn btn-primary">Agregar</button>
+            </form>
+        </div>
+    </div><br>
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre Producto</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each resultado_producto}}
+                    <tr>
+                    <th scope="row">{{id_producto}}</th>
+                    <td>{{nom_producto}}</td>
+                    <td>{{cantidad}}</td>
+                    <td>
+                 <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+                        <data-bs-target="eliminarproductos{{id_producto}}">
+                        Eliminar
+                        </button>
+
+                <!-- Modal -->
+                        <div class="modal fade" id="eliminarproductos{{id_producto}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Esta seguro que quiere eliminar {{nom_producto}}
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <a class="btn btn-danger" href="eliminarproductos/{{id_producto}}">Eliminar</a>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        <button type="submit" class="btn btn-warning">Modificar</button>
+                    </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+                </table>
+        </div>
+    </div>
+</div>

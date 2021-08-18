@@ -1,0 +1,57 @@
+<div class="container p4">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-bady">
+                    <form action="" method="post">
+                        <div class="form-group">
+                            <label for="">Registrar</label>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="usuario" id="">                        
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="contra" id="">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success btn-block">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h1>Usuarios</h1>
+                <table class="table">
+                    <thead>
+                        <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Usuario</th>
+                        <th scope="col">Contraseña</th>
+                        <th scope="col">Edad</th>
+                        <th scope="col">#</th>
+                        </tr>
+                    </thead>
+                        <tbody>
+                            {{#each usua}}
+                            <tr>
+                            <th scope="row">{{id}}</th>
+                            <td>{{nombre}}</td>
+                            <td>{{usuario}}</td>
+                            <td>{{contra}}</td>
+                            <td>{{edad}}</td>
+                            <td></td>
+                            <td>
+                                <a href="editar/{{id}}" class="btn btn-info">Modificar</a>
+                                <a href="delete/{{id}}" class="btn btn-danger">Eliminar</a>
+                            </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+    </div>
+</div>
